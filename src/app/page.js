@@ -1,9 +1,10 @@
-import Image from "next/image";
+import React from 'react'
+import Calendar from '@/components/Calendar'
 
-export default function Home() {
+function page() {
   return (
-    <>
-      
-    </>
-  );
+    <Calendar />
+  )
 }
+
+export default page
