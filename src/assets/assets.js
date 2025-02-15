@@ -26,10 +26,18 @@ import avatar3 from "./avatar3.svg";
 import avatar4 from "./avatar4.svg";
 import avatar5 from "./avatar5.svg";
 import avatar6 from "./avatar6.svg";
-import Design from "./Design.png"
-import Figma from "./Figma.png"
-import GraduationCap from "./GraduationCap.png"
+import Design from "./Design.png";
+import Figma from "./Figma.png";
+import GraduationCap from "./GraduationCap.png";
 import Interaction from "./Interaction.png";
+import Rectangle1 from "./Rectangle1.png";
+import Rectangle2 from "./Rectangle2.png";
+import Rectangle3 from "./Rectangle3.png";
+import Rectangle4 from "./Rectangle4.png";
+import watch from "./watch.svg";
+import downloads from "./downloads.svg";
+import Form from "./Form.svg";
+import Clock from "./Clock.svg";
 
 export const assets = {
   logo,
@@ -63,7 +71,15 @@ export const assets = {
   Design,
   Figma,
   GraduationCap,
-  Interaction
+  Interaction,
+  Rectangle1,
+  Rectangle2,
+  Rectangle3,
+  Rectangle4,
+  watch,
+  downloads,
+  Form,
+  Clock,
 };
 
 export const sliderManu = [
@@ -72,7 +88,7 @@ export const sliderManu = [
   { name: "Schedule", icon: assets.calendar, path: "/Schedule" },
   { name: "Recordings", icon: assets.recording, path: "/Recordings" },
   { name: "Discussions", icon: assets.discussion, path: "/Discussions" },
-  { name: "Resources", icon: assets.resources, path: "/resources" },
+  { name: "Resources", icon: assets.resources, path: "/Resources" },
   { name: "Notes", icon: assets.note, path: "/Notes" },
   { name: "Downloads", icon: assets.download, path: "/Downloads" },
   { name: "Classes", icon: assets.classes, path: "/Classes" },
@@ -132,11 +148,11 @@ export const data = [
     paragraph: "This monthly progress agenda is following this items:",
     points: [
       "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each"
+      "Monthly Revenue updates for each",
     ],
     avatar: assets.avatar1,
     name: "Floyd Miles",
-    date: "Mar 5 04:25"
+    date: "Mar 5 04:25",
   },
 
   {
@@ -145,11 +161,11 @@ export const data = [
     paragraph: "This monthly progress agenda is following this items:",
     points: [
       "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each"
+      "Monthly Revenue updates for each",
     ],
     avatar: assets.avatar2,
     name: "Dianne Russell",
-    date: "Apr 11 18:30"
+    date: "Apr 11 18:30",
   },
 
   {
@@ -158,11 +174,11 @@ export const data = [
     paragraph: "This monthly progress agenda is following this items:",
     points: [
       "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each"
+      "Monthly Revenue updates for each",
     ],
     avatar: assets.avatar3,
     name: "Annette Black",
-    date: "Jun 23 14:31"
+    date: "Jun 23 14:31",
   },
 
   {
@@ -170,11 +186,11 @@ export const data = [
     title: "Monthly Team Progress",
     points: [
       "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each"
+      "Monthly Revenue updates for each",
     ],
     avatar: assets.avatar4,
     name: "Robert Fox",
-    date: "Jan 31 09:53"
+    date: "Jan 31 09:53",
   },
 
   {
@@ -182,11 +198,11 @@ export const data = [
     title: "Product Team Meeting",
     paragraph: "This monthly progress agenda is following this items:",
     points: [
-      "Some Summaries of this weeks meeting with some conclusion we get :"
+      "Some Summaries of this weeks meeting with some conclusion we get :",
     ],
     avatar: assets.avatar5,
     name: "Brooklyn Simmons",
-    date: "Aug 15 10:29"
+    date: "Aug 15 10:29",
   },
 
   {
@@ -196,7 +212,7 @@ export const data = [
     image: "/images/cardImage1.png",
     avatar: assets.avatar6,
     name: "Cameron Williamson",
-    date: "Dec 30 21:28"
+    date: "Dec 30 21:28",
   },
 
   {
@@ -204,11 +220,11 @@ export const data = [
     title: "Monthly Team Progress",
     points: [
       "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each"
+      "Monthly Revenue updates for each",
     ],
     avatar: assets.avatar4,
     name: "Robert Fox",
-    date: "Jan 31 09:53"
+    date: "Jan 31 09:53",
   },
 
   {
@@ -216,11 +232,11 @@ export const data = [
     title: "Product Team Meeting",
     paragraph: "This monthly progress agenda is following this items:",
     points: [
-      "Some Summaries of this weeks meeting with some conclusion we get :"
+      "Some Summaries of this weeks meeting with some conclusion we get :",
     ],
     avatar: assets.avatar5,
     name: "Brooklyn Simmons",
-    date: "Aug 15 10:29"
+    date: "Aug 15 10:29",
   },
 
   {
@@ -230,7 +246,7 @@ export const data = [
     image: "/images/cardImage2.png",
     avatar: assets.avatar6,
     name: "Cameron Williamson",
-    date: "Dec 30 21:28"
+    date: "Dec 30 21:28",
   },
 
   {
@@ -239,21 +255,21 @@ export const data = [
     paragraph: "This weekly progress agenda is following this items:",
     points: [
       "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each"
+      "Monthly Revenue updates for each",
     ],
     avatar: assets.avatar2,
     name: "Dianne Russell",
-    date: "Apr 11 18:30"
+    date: "Apr 11 18:30",
   },
 
   {
     buttonText: ["Business"],
     title: "Revenue Progress",
     points: ["Report Document of Weekly Meetings"],
-    image:"/images/cardImage2.png",
+    image: "/images/cardImage2.png",
     avatar: assets.avatar3,
     name: "Ronald Richards",
-    date: "May 22 04:32"
+    date: "May 22 04:32",
   },
 
   {
@@ -263,6 +279,39 @@ export const data = [
     image: "/images/cardImage3.png",
     avatar: assets.avatar6,
     name: "Albert Flores",
-    date: "Oct 4 15:48"
-  }
+    date: "Oct 4 15:48",
+  },
+];
+
+export const cardData = [
+  {
+    title: "Color Styles - 02",
+    duration: "1:30hrs",
+    lessons: "02 Lessons",
+    image: assets.Rectangle1,
+  },
+  {
+    title: "Design Thinking",
+    duration: "2:30hrs",
+    lessons: "02 Lessons",
+    image: assets.Rectangle2,
+  },
+  {
+    title: "Constructing Visual Design from Briefs",
+    duration: "3:30hrs",
+    lessons: "01 Lessons",
+    image: assets.Rectangle3,
+  },
+  {
+    title: "Curiosity for Terminology",
+    duration: "4:00hrs",
+    lessons: "02 Lessons",
+    image: assets.Rectangle4,
+  },
+  {
+    title: "Color Styles - 01",
+    duration: "2:30hrs",
+    lessons: "02 Lessons",
+    image: assets.Rectangle1,
+  },
 ];

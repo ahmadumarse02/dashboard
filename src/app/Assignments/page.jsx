@@ -101,9 +101,7 @@ function page() {
             <button
               key={index}
               className={`px-3 py-1 rounded-md ${
-                currentPage === page
-                  ? "bg-orange-500 text-white"
-                  : ""
+                currentPage === page ? "bg-orange-500 text-white" : ""
               }`}
               onClick={() => typeof page === "number" && setCurrentPage(page)}
             >

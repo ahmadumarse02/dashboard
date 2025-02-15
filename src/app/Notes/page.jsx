@@ -7,59 +7,58 @@ function Page() {
     <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {data.map((card, index) => (
         <div
-        key={index}
-        className="border border-gray-200 rounded-2xl h-[210px] flex flex-col justify-between py-[14px] px-[21px] bg-white hover:shadow-md transition-shadow"
-      >
-        <div className="flex-grow">
-          <div className="mb-2 flex flex-wrap gap-1">
-            {card.buttonText.map((btn, i) => (
-              <span
-                key={i}
-                className="text-xs font-semibold px-2 py-1 rounded-full"
-                style={{
-                  backgroundColor: getLabelColor(btn),
-                  color: getTextColor(btn),
-                }}
-              >
-                {btn}
-              </span>
-            ))}
+          key={index}
+          className="border border-gray-200 rounded-2xl h-[210px] flex flex-col justify-between py-[14px] px-[21px] bg-white hover:shadow-md transition-shadow"
+        >
+          <div className="flex-grow">
+            <div className="mb-2 flex flex-wrap gap-1">
+              {card.buttonText.map((btn, i) => (
+                <span
+                  key={i}
+                  className="text-xs font-semibold px-2 py-1 rounded-full"
+                  style={{
+                    backgroundColor: getLabelColor(btn),
+                    color: getTextColor(btn),
+                  }}
+                >
+                  {btn}
+                </span>
+              ))}
+            </div>
+            <h3 className="text-sm font-bold mb-[10px]">{card.title}</h3>
+            {card.paragraph && (
+              <p className="text-sm text-gray-600">{card.paragraph}</p>
+            )}
+            <ul className="list-disc pl-5 text-gray-600 text-sm">
+              {card.points.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+            {card.image && (
+              <Image
+                src={card.image}
+                alt="Card Image"
+                width={400}
+                height={40}
+                className="rounded-t-sm object-cover h-[45px] w-full"
+              />
+            )}
           </div>
-          <h3 className="text-sm font-bold mb-[10px]">{card.title}</h3>
-          {card.paragraph && (
-            <p className="text-sm text-gray-600">{card.paragraph}</p>
-          )}
-          <ul className="list-disc pl-5 text-gray-600 text-sm">
-            {card.points.map((point, i) => (
-              <li  key={i}>{point}</li>
-            ))}
-          </ul>
-          {card.image && (
-            <Image
-              src={card.image}
-              alt="Card Image"
-              width={400}
-              height={40}
-              className="rounded-t-sm object-cover h-[45px] w-full"
-            />
-          )}
-        </div>
-        <hr className="my-2" />
-        <div className="flex items-center justify-between h-5 mt-2">
-          <div className="flex gap-2 items-center">
-            <Image
-              src={card.avatar}
-              alt={card.name}
-              width={17}
-              height={17}
-              className="rounded-full mr-2"
-            />
-            <h4 className="font-semibold text-sm">{card.name}</h4>
+          <hr className="my-2" />
+          <div className="flex items-center justify-between h-5 mt-2">
+            <div className="flex gap-2 items-center">
+              <Image
+                src={card.avatar}
+                alt={card.name}
+                width={17}
+                height={17}
+                className="rounded-full mr-2"
+              />
+              <h4 className="font-semibold text-sm">{card.name}</h4>
+            </div>
+            <p className="text-xs text-gray-500">{card.date}</p>
           </div>
-          <p className="text-xs text-gray-500">{card.date}</p>
         </div>
-      </div>
-      
       ))}
     </div>
   );

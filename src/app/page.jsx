@@ -2,11 +2,10 @@
 import Image from "next/image";
 import { assets } from "@/assets/assets";
 import Resources from "@/components/Resources";
-import HoursSpent from "@/components/HourSpent.jsx"
-import PerformanceCard from "@/components/PerformanceCard.jsx"
+import HoursSpent from "@/components/HourSpent.jsx";
+import PerformanceCard from "@/components/PerformanceCard.jsx";
 import ToDoCard from "@/components/ToDoCard";
 import RecentClasses from "@/components/RecentClasses";
-
 
 export default function App() {
   return (
@@ -67,10 +66,10 @@ export default function App() {
           </div>
 
           <div className="flex gap-7 mb-7 h-[272px]">
-              <HoursSpent />
-              <PerformanceCard />
-              <ToDoCard />
-            </div>
+            <HoursSpent />
+            <PerformanceCard />
+            <ToDoCard />
+          </div>
         </div>
         <RecentClasses />
       </div>

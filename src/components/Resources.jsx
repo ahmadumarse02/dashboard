@@ -32,7 +32,9 @@ function Resources() {
           <div className="flex mb-[5px]">
             <p className="w-[183px] text-[7px] text-black">Auto-layout.pdf</p>
             <p className="text-[7px] w-[160px] text-black">8.5MB</p>
-            <p className="text-[7px] text-orange-500 cursor-pointer">Download</p>
+            <p className="text-[7px] text-orange-500 cursor-pointer">
+              Download
+            </p>
           </div>
           <p className="text-[7px] text-[#85878D]">
             Let's quickly create some realistic and shiny metal @figma✨
@@ -47,7 +49,9 @@ function Resources() {
           <div className="flex mb-[5px]">
             <p className="w-[183px] text-[7px] text-black">Auto-layout.pdf</p>
             <p className="text-[7px] w-[153px] text-black">8.5MB</p>
-            <p className="text-[7px] text-orange-500 cursor-pointer">Download</p>
+            <p className="text-[7px] text-orange-500 cursor-pointer">
+              Download
+            </p>
           </div>
           <p className="text-[7px] text-[#85878D]">
             Let's quickly create some realistic and shiny metal @figma✨

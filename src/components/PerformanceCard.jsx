@@ -3,11 +3,11 @@
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import Image from "next/image";
-import image from "@/assets/image.png"
+import image from "@/assets/image.png";
 
 export default function PerformanceCard() {
-  const [grade] = useState(8.966); // Example grade
-  const percentage = (grade / 10) * 180; // Convert to degrees (Max: 180°)
+  const [grade] = useState(8.966);
+  const percentage = (grade / 10) * 180;
 
   return (
     <div className="bg-white border border-[#E4E4E4] px-3 py-4 rounded-2xl w-[240px]">
@@ -25,16 +25,17 @@ export default function PerformanceCard() {
             </p>
           </div>
           {/* Dropdown */}
-          <button className="flex items-center bg-gray-100 px-2 py-1 w-[65px] h-[19px] rounded text-xs text-gray-700 font-medium">
-            Monthly <FaChevronDown className="ml-1 w-3 h-3" />
-          </button>
+          <select className="bg-gray-100 px-1 py-1 w-[65px] rounded text-[8px] text-gray-700 font-medium">
+            <option>Monthly</option>
+            <option>Weekly</option>
+          </select>
         </div>
 
-<Image src={image} alt="" className="h-[109px] w-[150px] mx-auto"/>
+        <Image src={image} alt="" className="h-[109px] w-[150px] mx-auto" />
 
-        {/* Grade Display */}
         <p className="text-gray-500 text-sm text-center">
-          Your Grade: <span className="text-black font-bold text-lg">{grade}</span>
+          Your Grade:{" "}
+          <span className="text-black font-bold text-lg">{grade}</span>
         </p>
       </div>
     </div>
