@@ -28,22 +28,22 @@ function Schedule() {
   });
 
   const handlePrev = () => {
-    calendarRef.current?.getApi().prev();
-    setCurrentMonth(calendarRef.current?.getApi().view.title || "");
+    calendarRef.current.calendar.prev();
+    setCurrentMonth(calendarRef.current.calendar.view.title);
   };
 
   const handleNext = () => {
-    calendarRef.current?.getApi().next();
-    setCurrentMonth(calendarRef.current?.getApi().view.title || "");
+    calendarRef.current.calendar.next();
+    setCurrentMonth(calendarRef.current.calendar.view.title);
   };
 
   const handleToday = () => {
-    calendarRef.current?.getApi().today();
-    setCurrentMonth(calendarRef.current?.getApi().view.title || "");
+    calendarRef.current.calendar.today();
+    setCurrentMonth(calendarRef.current.calendar.view.title);
   };
 
   useEffect(() => {
-    setCurrentMonth(calendarRef.current?.getApi().view.title || "");
+    setCurrentMonth(calendarRef.current.calendar.view.title);
   }, []);
 
   const handleAddTask = () => {
@@ -114,7 +114,7 @@ function Schedule() {
             <button
               className="tablinks"
               onClick={() =>
-                calendarRef.current?.getApi().changeView("dayGridMonth")
+                calendarRef.current.calendar.changeView("dayGridMonth")
               }
             >
               Monthly
@@ -122,7 +122,7 @@ function Schedule() {
             <button
               className="tablinks"
               onClick={() =>
-                calendarRef.current?.getApi().changeView("timeGridWeek")
+                calendarRef.current.calendar.changeView("timeGridWeek")
               }
             >
               Weekly
@@ -130,7 +130,7 @@ function Schedule() {
             <button
               className="tablinks"
               onClick={() =>
-                calendarRef.current?.getApi().changeView("timeGridDay")
+                calendarRef.current.calendar.changeView("timeGridDay")
               }
             >
               Daily
