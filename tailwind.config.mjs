@@ -11,6 +11,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        "inter": "inter",
+        "SpaceGrotesk":"SpaceGrotesk"
+      }
     },
   },
   plugins: [],

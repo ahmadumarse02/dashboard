@@ -6,6 +6,8 @@ import HoursSpent from "@/components/HourSpent.jsx";
 import PerformanceCard from "@/components/PerformanceCard.jsx";
 import ToDoCard from "@/components/ToDoCard";
 import RecentClasses from "@/components/RecentClasses";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
 
 export default function App() {
   return (
@@ -47,22 +49,13 @@ export default function App() {
 
             <Resources />
 
-            {/* card3  */}
-            {/* <div className="custom-calendar max-w-full bg-white rounded-lg">
+           <div className="custom-calendar max-w-full bg-white rounded-lg">
               <FullCalendar
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
-                headerToolbar={{
-                  start: "prev",
-                  center: "title",
-                  end: "next",
-                }}
-                titleFormat={{ year: "numeric", month: "long" }}
-                height="100%"
-                contentHeight="auto"
-                fixedWeekCount={false}
+                headerToolbar={false}
               />
-            </div> */}
+            </div>
           </div>
 
           <div className="flex gap-7 mb-7 h-[272px]">

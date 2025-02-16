@@ -8,9 +8,9 @@ function Slidebar() {
   const pathname = usePathname(); // Get the current route
 
   return (
-    <aside className="w-[14rem] h-screen bg-[#F2F2F2] border-r border-[#E4E4E4]">
+    <aside className="border-r border-[#E4E4E4]">
       <Link href="/" className="no-underline">
-        <h1 className="text-[22px] font-bold flex text-[#060606] gap-2 items-center h-[65px] px-[42px] py-[17px]">
+        <h1 className="text-[22px] font-SpaceGrotesk font-bold flex text-[#060606] gap-2 items-center h-[65px] px-[42px] py-[17px]">
           <Image src={assets.logo} alt="Logo" width={30} height={30} />
           DESIGNO
         </h1>
@@ -27,7 +27,7 @@ function Slidebar() {
                 className={`flex items-center h-8 px-4 py-3 my-1 mx-auto rounded-lg transition-all no-underline ${
                   pathname === item.path
                     ? "bg-orange-500 text-white"
-                    : "text-gray-700 hover:bg-gray-100"
+                    : "text-gray-700"
                 }`}
               >
                 <Image

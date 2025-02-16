@@ -16,6 +16,7 @@ function Schedule() {
     description: "",
     start: "",
     end: "",
+    originalStart: "",
   });
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
   const [currentMonth, setCurrentMonth] = useState("");
@@ -27,6 +28,7 @@ function Schedule() {
     end: "",
   });
 
+  // Calendar navigation handlers
   const handlePrev = () => {
     calendarRef.current.calendar.prev();
     setCurrentMonth(calendarRef.current.calendar.view.title);
@@ -49,80 +51,70 @@ function Schedule() {
   }, []);
 
   const handleViewChange = (view) => {
-    if (view === "addTask") {
-      setIsAddTaskModalOpen(true);
-    } else {
-      calendarRef.current.calendar.changeView(view);
-    }
+    view === "addTask" 
+      ? setIsAddTaskModalOpen(true)
+      : calendarRef.current.calendar.changeView(view);
   };
 
-
   const handleSaveTask = () => {
-    if (task.title && task.description && task.start && task.end) {
+    if (task.title && task.start && task.end) {
       const newEvent = {
         ...task,
         start: new Date(task.start).toISOString(),
         end: new Date(task.end).toISOString(),
-        allDay: true,
       };
-
       setEvents([...events, newEvent]);
       setIsAddTaskModalOpen(false);
       setTask({ title: "", description: "", start: "", end: "" });
     } else {
-      alert("Please fill in all fields.");
+      alert("Please fill in required fields.");
     }
   };
 
-  // Cancel adding a new task
   const handleCancelTask = () => {
     setIsAddTaskModalOpen(false);
     setTask({ title: "", description: "", start: "", end: "" });
   };
 
-  // Handle event click to show event details
+  // Event click handler with originalStart tracking
   const handleEventClick = (clickInfo) => {
-    const selected = {
+    const originalStart = clickInfo.event.start.toISOString();
+    setSelectedEvent({
       title: clickInfo.event.title,
       description: clickInfo.event.extendedProps.description,
-      start: clickInfo.event.start,
-      end: clickInfo.event.end ,
-    };
-    setSelectedEvent(selected);
+      start: clickInfo.event.start.toISOString(),
+      end: clickInfo.event.end?.toISOString() || "",
+      originalStart,
+    });
     setIsEventModalOpen(true);
   };
 
-  // Save changes to an event
+  // Updated save handler with date conversion
   const handleSaveChanges = () => {
-    if (
-      selectedEvent.title &&
-      selectedEvent.description &&
-      selectedEvent.start &&
-      selectedEvent.end
-    ) {
-      const updatedEvents = events.map((evt) =>
-        evt.start === selectedEvent.start ? selectedEvent : evt
-      );
-      setEvents(updatedEvents);
-      setIsEventModalOpen(false);
-    } else {
-      alert("Please fill in all fields.");
+    if (!selectedEvent.title || !selectedEvent.start || !selectedEvent.end) {
+      alert("Please fill in required fields.");
+      return;
     }
+
+    const updatedEvent = {
+      ...selectedEvent,
+      start: new Date(selectedEvent.start).toISOString(),
+      end: new Date(selectedEvent.end).toISOString(),
+    };
+
+    setEvents(events.map(evt => 
+      evt.start === selectedEvent.originalStart ? updatedEvent : evt
+    ));
+    setIsEventModalOpen(false);
   };
 
-  // Delete an event
+  // Fixed delete handler using originalStart
   const handleDeleteEvent = () => {
-    const filteredEvents = events.filter(
-      (evt) => evt.start !== selectedEvent.start
-    );
-    setEvents(filteredEvents);
+    setEvents(events.filter(evt => evt.start !== selectedEvent.originalStart));
     setIsEventModalOpen(false);
   };
 
-  // Close the event modal
-  const handleCloseEventModal = () => {
-    setIsEventModalOpen(false);
-  };
+  const handleCloseEventModal = () => setIsEventModalOpen(false);
 
   return (
     <>
