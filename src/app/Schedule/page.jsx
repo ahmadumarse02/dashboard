@@ -9,8 +9,19 @@ import EventModal from "@/components/Calendar/EventModal";
 
 function Schedule() {
   const calendarRef = useRef(null);
-  const [events, setEvents] = useState([]);
+
+  const [events, setEvents] = useState(() => {
+    const savedEvents = localStorage.getItem("calendarEvents");
+    try {
+      return savedEvents ? JSON.parse(savedEvents) : [];
+    } catch (e) {
+      console.error("Error parsing events from localStorage:", e);
+      return [];
+    }
+  });
+
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
+
   const [selectedEvent, setSelectedEvent] = useState({
     title: "",
     description: "",
@@ -18,7 +29,9 @@ function Schedule() {
     end: "",
     originalStart: "",
   });
+
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+
   const [currentMonth, setCurrentMonth] = useState("");
 
   const [task, setTask] = useState({
@@ -28,7 +41,6 @@ function Schedule() {
     end: "",
   });
 
-  // Calendar navigation handlers
   const handlePrev = () => {
     calendarRef.current.calendar.prev();
     setCurrentMonth(calendarRef.current.calendar.view.title);
@@ -50,8 +62,12 @@ function Schedule() {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("calendarEvents", JSON.stringify(events));
+  }, [events]);
+
   const handleViewChange = (view) => {
-    view === "addTask" 
+    view === "addTask"
       ? setIsAddTaskModalOpen(true)
       : calendarRef.current.calendar.changeView(view);
   };
@@ -102,15 +118,19 @@ function Schedule() {
       end: new Date(selectedEvent.end).toISOString(),
     };
 
-    setEvents(events.map(evt => 
-      evt.start === selectedEvent.originalStart ? updatedEvent : evt
-    ));
+    setEvents(
+      events.map((evt) =>
+        evt.start === selectedEvent.originalStart ? updatedEvent : evt
+      )
+    );
     setIsEventModalOpen(false);
   };
 
   // Fixed delete handler using originalStart
   const handleDeleteEvent = () => {
-    setEvents(events.filter(evt => evt.start !== selectedEvent.originalStart));
+    setEvents(
+      events.filter((evt) => evt.start !== selectedEvent.originalStart)
+    );
     setIsEventModalOpen(false);
   };
 
