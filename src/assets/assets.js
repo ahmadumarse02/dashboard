@@ -3,6 +3,7 @@ import assignment from "./assignment.svg";
 import avatar from "./avatar.svg";
 import calendar from "./Calendar.svg";
 import caretDown from "./CaretDown.svg";
+import caretDown1 from "./CaretDown1.svg";
 import classes from "./classes.svg";
 import courses from "./courses.svg";
 import dashboard from "./dashboard.svg";
@@ -45,6 +46,7 @@ export const assets = {
   avatar,
   calendar,
   caretDown,
+  caretDown1,
   classes,
   courses,
   dashboard,
