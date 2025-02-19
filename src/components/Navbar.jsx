@@ -1,10 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
+import Link from "next/link";
 
 function Navbar() {
-  const [search, setSearch] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) setIsLoggedIn(true);
+  }, []);
+
   return (
     <>
       <div className="flex items-center justify-between h-[65px] bg-white py-[13px] px-[34px]">
@@ -14,8 +21,6 @@ function Navbar() {
             <input
               type="text"
               placeholder="Search"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
               className="outline-none bg-transparent"
             />
           </div>
@@ -29,15 +34,16 @@ function Navbar() {
           <div className="w-8 h-8 border border-[#E4E4E4] flex items-center justify-center rounded-md">
             <Image src={assets.frame3} alt="" />
           </div>
-          <Image
-            src={assets.avatar}
-            alt=""
-            width={30}
-            height={30}
-            className="rounded-full"
-          />
-          <span className="font-medium text-[13px] text-[#000]">Harsh</span>
-          <span className="text[#000]">▼</span>
+          <div className="flex gap-4">
+            {isLoggedIn ? (
+              <Link href="/profile">Profile</Link>
+            ) : (
+              <>
+                <Link href="/login">Login</Link>
+                <Link href="/signup">Sign Up</Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
       <div className="border border-[#E4E4E4] w-full"></div>
