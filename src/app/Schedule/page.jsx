@@ -10,15 +10,7 @@ import EventModal from "@/components/Calendar/EventModal";
 function Schedule() {
   const calendarRef = useRef(null);
 
-  const [events, setEvents] = useState(() => {
-    const savedEvents = localStorage.getItem("calendarEvents");
-    try {
-      return savedEvents ? JSON.parse(savedEvents) : [];
-    } catch (e) {
-      console.error("Error parsing events from localStorage:", e);
-      return [];
-    }
-  });
+  const [events, setEvents] = useState([]);
 
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
 
@@ -41,6 +33,7 @@ function Schedule() {
     end: "",
   });
 
+  // Calendar navigation handlers
   const handlePrev = () => {
     calendarRef.current.calendar.prev();
     setCurrentMonth(calendarRef.current.calendar.view.title);
@@ -62,9 +55,6 @@ function Schedule() {
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("calendarEvents", JSON.stringify(events));
-  }, [events]);
 
   const handleViewChange = (view) => {
     view === "addTask"
