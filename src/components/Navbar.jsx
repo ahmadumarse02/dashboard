@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
 import Link from "next/link";
+<<<<<<< HEAD
 import { useRouter } from "next/navigation";
 
 function Navbar() {
@@ -22,6 +23,17 @@ function Navbar() {
   };
 
 
+=======
+
+function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) setIsLoggedIn(true);
+  }, []);
+
+>>>>>>> 897494ed40188f06cbe4f30743401184b719dd9e
   return (
     <>
       <div className="flex items-center justify-between h-[65px] bg-white py-[13px] px-[34px]">
@@ -44,6 +56,7 @@ function Navbar() {
           <div className="w-8 h-8 border border-[#E4E4E4] flex items-center justify-center rounded-md">
             <Image src={assets.frame3} alt="" />
           </div>
+<<<<<<< HEAD
           <div>
         {user ? (
           <div className="flex items-center gap-4">
@@ -60,6 +73,18 @@ function Navbar() {
           </>
         )}
       </div>
+=======
+          <div className="flex gap-4">
+            {isLoggedIn ? (
+              <Link href="/profile">Profile</Link>
+            ) : (
+              <>
+                <Link href="/login">Login</Link>
+                <Link href="/signup">Sign Up</Link>
+              </>
+            )}
+          </div>
+>>>>>>> 897494ed40188f06cbe4f30743401184b719dd9e
         </div>
       </div>
       <div className="border border-[#E4E4E4] w-full"></div>
