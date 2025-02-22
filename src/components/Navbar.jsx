@@ -1,10 +1,27 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
-  const [search, setSearch] = useState("");
+  const router = useRouter();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleSignOut = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+  };
+
+
   return (
     <>
       <div className="flex items-center justify-between h-[65px] bg-white py-[13px] px-[34px]">
@@ -14,8 +31,6 @@ function Navbar() {
             <input
               type="text"
               placeholder="Search"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
               className="outline-none bg-transparent"
             />
           </div>
@@ -29,15 +44,22 @@ function Navbar() {
           <div className="w-8 h-8 border border-[#E4E4E4] flex items-center justify-center rounded-md">
             <Image src={assets.frame3} alt="" />
           </div>
-          <Image
-            src={assets.avatar}
-            alt=""
-            width={30}
-            height={30}
-            className="rounded-full"
-          />
-          <span className="font-medium text-[13px] text-[#000]">Harsh</span>
-          <span className="text[#000]">▼</span>
+          <div>
+        {user ? (
+          <div className="flex items-center gap-4">
+            <span>{user.name}</span>
+            <button onClick={handleSignOut} className="bg-red-500 px-3 py-1 rounded">
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <>
+            <button onClick={() => router.push("/SignIn")} className="mr-4">
+              Sign In
+            </button>
+          </>
+        )}
+      </div>
         </div>
       </div>
       <div className="border border-[#E4E4E4] w-full"></div>
