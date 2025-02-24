@@ -6,6 +6,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import CalendarHeader from "@/components/Calendar/CalendarHeader";
 import AddTaskModal from "@/components/Calendar/AddTaskModal";
 import EventModal from "@/components/Calendar/EventModal";
+import interactionPlugin from "@fullcalendar/interaction";
 
 function Schedule() {
   const calendarRef = useRef(null);
@@ -54,7 +55,6 @@ function Schedule() {
       setCurrentMonth(calendarRef.current.calendar.view.title);
     }
   }, []);
-
 
   const handleViewChange = (view) => {
     view === "addTask"
@@ -126,6 +126,20 @@ function Schedule() {
 
   const handleCloseEventModal = () => setIsEventModalOpen(false);
 
+  const handleDateSelect = (selectInfo) => {
+    const startDate = selectInfo.start.toISOString();
+    const endDate = selectInfo.endStr
+      ? selectInfo.endStr.slice(0, 16)
+      : startDate;
+
+    setTask((prevTask) => ({
+      ...prevTask,
+      start: startDate,
+      end: endDate,
+    }));
+    setIsAddTaskModalOpen(true);
+  };
+
   return (
     <>
       <CalendarHeader
@@ -158,9 +172,11 @@ function Schedule() {
       <div className="p-5">
         <FullCalendar
           ref={calendarRef}
-          plugins={[dayGridPlugin, timeGridPlugin]}
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           headerToolbar={false}
           initialView="dayGridMonth"
+          selectable={true}
+          select={handleDateSelect}
           events={events}
           eventClick={handleEventClick}
         />

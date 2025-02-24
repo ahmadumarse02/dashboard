@@ -20,15 +20,15 @@ export default function AddTaskModal({ task, setTask, onSave, onCancel }) {
             onChange={(e) => setTask({ ...task, description: e.target.value })}
           />
           <input
-            type="datetime-local"
             placeholder="Start Time"
+            type="datetime-local"
             className="border p-2 w-full mb-2 rounded"
             value={task.start}
             onChange={(e) => setTask({ ...task, start: e.target.value })}
           />
           <input
-            type="datetime-local"
             placeholder="End Time"
+            type="datetime-local"
             className="border p-2 w-full mb-2 rounded"
             value={task.end}
             onChange={(e) => setTask({ ...task, end: e.target.value })}

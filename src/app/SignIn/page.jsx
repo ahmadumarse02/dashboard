@@ -16,8 +16,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-80">
+    <div className="flex justify-center pt-20 h-auto">
+      <form onSubmit={handleSubmit} className="bg-gray-100 p-6 rounded shadow-md w-80">
         <h2 className="text-2xl font-bold mb-4">Sign In</h2>
         <input
           type="text"
