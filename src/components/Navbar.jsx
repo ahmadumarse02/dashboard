@@ -1,22 +1,14 @@
 "use client";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
-import { useRouter } from "next/navigation"; // Ensure to import router
+import { useRouter } from "next/navigation";
 
 function Navbar() {
-  const [user, setUser] = useState(null);
   const router = useRouter();
 
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) setUser(storedUser);
-  }, []);
-
-  const handleSignOut = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-    router.push("/");
+  const handleLogout = () => {
+    localStorage.removeItem("auth");
+    router.push("/login");
   };
 
   return (
@@ -41,23 +33,13 @@ function Navbar() {
           <div className="w-8 h-8 border border-[#E4E4E4] flex items-center justify-center rounded-md">
             <Image src={assets.frame3} alt="Frame3" />
           </div>
-          <div>
-            {user ? (
-              <div className="flex items-center gap-4">
-                <span>{user.name}</span>
-                <button
-                  onClick={handleSignOut}
-                  className="bg-red-500 px-3 py-1 rounded"
-                >
-                  Sign Out
-                </button>
-              </div>
-            ) : (
-              <button onClick={() => router.push("/SignIn")} className="mr-4">
-                Sign In
-              </button>
-            )}
-          </div>
+
+          <button
+            onClick={handleLogout}
+            className="bg-orange-500 px-3 py-1 rounded"
+          >
+            Sign Out
+          </button>
         </div>
       </div>
       <div className="border border-[#E4E4E4] w-full"></div>

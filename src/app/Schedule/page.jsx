@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
+import listPlugin from "@fullcalendar/list";
 import CalendarHeader from "@/components/Calendar/CalendarHeader";
 import AddTaskModal from "@/components/Calendar/AddTaskModal";
 import EventModal from "@/components/Calendar/EventModal";
@@ -10,31 +11,20 @@ import interactionPlugin from "@fullcalendar/interaction";
 
 function Schedule() {
   const calendarRef = useRef(null);
-
   const [events, setEvents] = useState([]);
-
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState(false);
+  const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+  const [currentMonth, setCurrentMonth] = useState("");
 
-  const [selectedEvent, setSelectedEvent] = useState({
+  const [currentEvent, setCurrentEvent] = useState({
     title: "",
     description: "",
     start: "",
     end: "",
     originalStart: "",
+    isEditing: false,
   });
 
-  const [isEventModalOpen, setIsEventModalOpen] = useState(false);
-
-  const [currentMonth, setCurrentMonth] = useState("");
-
-  const [task, setTask] = useState({
-    title: "",
-    description: "",
-    start: "",
-    end: "",
-  });
-
-  // Calendar navigation handlers
   const handlePrev = () => {
     calendarRef.current.calendar.prev();
     setCurrentMonth(calendarRef.current.calendar.view.title);
@@ -57,21 +47,37 @@ function Schedule() {
   }, []);
 
   const handleViewChange = (view) => {
-    view === "addTask"
-      ? setIsAddTaskModalOpen(true)
-      : calendarRef.current.calendar.changeView(view);
+    if (view === "addTask") {
+      setIsAddTaskModalOpen(true);
+      setCurrentEvent({
+        title: "",
+        description: "",
+        start: "",
+        end: "",
+        isEditing: false,
+      });
+    } else {
+      calendarRef.current.calendar.changeView(view);
+      setCurrentMonth(calendarRef.current.calendar.view.title);
+    }
   };
 
   const handleSaveTask = () => {
-    if (task.title && task.start && task.end) {
+    if (currentEvent.title && currentEvent.start && currentEvent.end) {
       const newEvent = {
-        ...task,
-        start: new Date(task.start).toISOString(),
-        end: new Date(task.end).toISOString(),
+        ...currentEvent,
+        start: new Date(currentEvent.start).toISOString(),
+        end: new Date(currentEvent.end).toISOString(),
       };
       setEvents([...events, newEvent]);
       setIsAddTaskModalOpen(false);
-      setTask({ title: "", description: "", start: "", end: "" });
+      setCurrentEvent({
+        title: "",
+        description: "",
+        start: "",
+        end: "",
+        isEditing: false,
+      });
     } else {
       alert("Please fill in required fields.");
     }
@@ -79,64 +85,75 @@ function Schedule() {
 
   const handleCancelTask = () => {
     setIsAddTaskModalOpen(false);
-    setTask({ title: "", description: "", start: "", end: "" });
+    setCurrentEvent({
+      title: "",
+      description: "",
+      start: "",
+      end: "",
+      isEditing: false,
+    });
   };
 
-  // Event click handler with originalStart tracking
   const handleEventClick = (clickInfo) => {
     const originalStart = clickInfo.event.start.toISOString();
-    setSelectedEvent({
+    setCurrentEvent({
       title: clickInfo.event.title,
-      description: clickInfo.event.extendedProps.description,
+      description: clickInfo.event.extendedProps.description || "",
       start: clickInfo.event.start.toISOString(),
       end: clickInfo.event.end?.toISOString() || "",
       originalStart,
+      isEditing: true,
     });
     setIsEventModalOpen(true);
   };
 
-  // Updated save handler with date conversion
   const handleSaveChanges = () => {
-    if (!selectedEvent.title || !selectedEvent.start || !selectedEvent.end) {
+    if (!currentEvent.title || !currentEvent.start || !currentEvent.end) {
       alert("Please fill in required fields.");
       return;
     }
 
     const updatedEvent = {
-      ...selectedEvent,
-      start: new Date(selectedEvent.start).toISOString(),
-      end: new Date(selectedEvent.end).toISOString(),
+      ...currentEvent,
+      start: new Date(currentEvent.start).toISOString(),
+      end: new Date(currentEvent.end).toISOString(),
     };
 
     setEvents(
       events.map((evt) =>
-        evt.start === selectedEvent.originalStart ? updatedEvent : evt
+        evt.start === currentEvent.originalStart ? updatedEvent : evt
       )
     );
     setIsEventModalOpen(false);
+    setCurrentEvent({
+      title: "",
+      description: "",
+      start: "",
+      end: "",
+      isEditing: false,
+    });
   };
 
-  // Fixed delete handler using originalStart
   const handleDeleteEvent = () => {
-    setEvents(
-      events.filter((evt) => evt.start !== selectedEvent.originalStart)
-    );
+    setEvents(events.filter((evt) => evt.start !== currentEvent.originalStart));
     setIsEventModalOpen(false);
   };
 
   const handleCloseEventModal = () => setIsEventModalOpen(false);
 
   const handleDateSelect = (selectInfo) => {
-    const startDate = selectInfo.start.toISOString();
-    const endDate = selectInfo.endStr
-      ? selectInfo.endStr.slice(0, 16)
-      : startDate;
-
-    setTask((prevTask) => ({
-      ...prevTask,
-      start: startDate,
-      end: endDate,
-    }));
+    const startTime = new Date(selectInfo.start);
+    startTime.setMinutes(
+      startTime.getMinutes() - startTime.getTimezoneOffset()
+    );
+    const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
+    setCurrentEvent({
+      title: "",
+      description: "",
+      start: startTime.toISOString().slice(0, 16),
+      end: endTime.toISOString().slice(0, 16),
+      isEditing: false,
+    });
     setIsAddTaskModalOpen(true);
   };
 
@@ -152,8 +169,8 @@ function Schedule() {
 
       {isAddTaskModalOpen && (
         <AddTaskModal
-          task={task}
-          setTask={setTask}
+          task={currentEvent}
+          setTask={setCurrentEvent}
           onSave={handleSaveTask}
           onCancel={handleCancelTask}
         />
@@ -161,8 +178,8 @@ function Schedule() {
 
       {isEventModalOpen && (
         <EventModal
-          selectedEvent={selectedEvent}
-          setSelectedEvent={setSelectedEvent}
+          selectedEvent={currentEvent}
+          setSelectedEvent={setCurrentEvent}
           onSaveChanges={handleSaveChanges}
           onDelete={handleDeleteEvent}
           onClose={handleCloseEventModal}
@@ -172,13 +189,18 @@ function Schedule() {
       <div className="p-5">
         <FullCalendar
           ref={calendarRef}
-          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          headerToolbar={false}
+          plugins={[
+            dayGridPlugin,
+            timeGridPlugin,
+            listPlugin,
+            interactionPlugin,
+          ]}
           initialView="dayGridMonth"
           selectable={true}
           select={handleDateSelect}
           events={events}
           eventClick={handleEventClick}
+          headerToolbar={false}
         />
       </div>
     </>

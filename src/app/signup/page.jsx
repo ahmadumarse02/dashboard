@@ -5,20 +5,21 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-function Signin() {
-  const [value, setValue] = useState({ email: "", password: "" });
+function Signup() {
+  const [value, setValue] = useState({username: "", email: "", password: "" });
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/signin", {
+      const response = await axios.post("/api/signup", {
+        username: value.username,
         email: value.email,
         password: value.password,
       });
 
       if (response.status === 200) {
-        router.push("/");
+        router.push("/signin");
       }
     } catch (error) {
       alert("please enter the correct email or password")
@@ -35,8 +36,17 @@ function Signin() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800">
-      <h2 className="text-2xl font-bold mb-4">Sign In</h2>
+      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
       <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 shadow-md rounded-md">
+      <input
+          type="text"
+          name="username"
+          placeholder="User Name"
+          value={value.username}
+          onChange={handleChange}
+          className="p-2 border w-full outline-none"
+          required
+        />
         <input
           type="email"
           name="email"
@@ -56,12 +66,12 @@ function Signin() {
           required
         />
         <button type="submit" className="bg-orange-500 text-white px-4 py-2 w-full">
-          Sign In
+          Sign Up
         </button>
       <p className="mt-4 text-center text-gray-800">
         Don't have an account?
-        <Link href="/signup" className="text-orange-500">
-          Sign Up
+        <Link href="/signin" className="text-orange-500">
+          Sign in
         </Link>
       </p>
       </form>
@@ -69,4 +79,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;

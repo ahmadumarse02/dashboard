@@ -8,8 +8,19 @@ import ToDoCard from "@/components/ToDoCard";
 import RecentClasses from "@/components/RecentClasses";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-export default function App() {
+export default function HomePage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const auth = localStorage.getItem("auth");
+    if (!auth) {
+      router.push("/login");
+    }
+  }, [router]);
+
   return (
     <div className="w-full h-[955] bg-white">
       {/* Heading  */}
@@ -68,4 +79,5 @@ export default function App() {
       </div>
     </div>
   );
+
 }

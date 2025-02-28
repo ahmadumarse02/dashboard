@@ -53,6 +53,16 @@ export default function CalendarHeader({
             >
               Daily
             </button>
+            <button
+              className={`pb-1 ${
+                activeView === "listWeek"
+                  ? "border-b-2 border-orange-500 text-orange-500"
+                  : ""
+              }`}
+              onClick={() => handleViewChange("listWeek")}
+            >
+              List
+            </button>
           </div>
         </div>
         <div className="flex items-center space-x-3">

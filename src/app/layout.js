@@ -5,17 +5,15 @@ import Navbar from "@/components/Navbar";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex h-screen">
-        <div className="fixed z-50 left-0 top-0 h-screen bg-[#E4E4E4] w-[14rem]">
+      <body className="flex h-screen bg-gray-100">
+        <aside className="fixed left-0 top-0 h-screen w-56 bg-[#E4E4E4] shadow-md z-50">
           <Slidebar />
-        </div>
-
-        <div className="ml-[14rem] flex-1 flex flex-col">
-          <div className="fixed top-0 right-0 left-[14rem] z-50">
+        </aside>
+        <div className={"flex flex-col flex-1 ml-56"}>
+          <header className="fixed top-0 left-56 right-0 bg-white shadow-md z-50">
             <Navbar />
-          </div>
-
-          <div className="mt-[65px] p-4 bg-white text-black">{children}</div>
+          </header>
+          <main className={"mt-16 max-h-screen overflow-auto"}>{children}</main>
         </div>
       </body>
     </html>
