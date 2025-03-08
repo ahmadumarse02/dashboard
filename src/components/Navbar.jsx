@@ -1,15 +1,8 @@
 "use client";
 import Image from "next/image";
 import { assets } from "@/assets/assets";
-import { useRouter } from "next/navigation";
 
 function Navbar() {
-  const router = useRouter();
-
-  const handleLogout = () => {
-    localStorage.removeItem("auth");
-    router.push("/login");
-  };
 
   return (
     <>
@@ -35,7 +28,6 @@ function Navbar() {
           </div>
 
           <button
-            onClick={handleLogout}
             className="bg-orange-500 px-3 py-1 rounded"
           >
             Sign Out

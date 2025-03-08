@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     const [rows] = await connection.execute(
       "SELECT id, username, email FROM users WHERE id = ?",
-      [decoded.userId]
+      [decoded.userId],
     );
 
     if (rows.length === 0) {

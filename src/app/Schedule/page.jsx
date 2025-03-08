@@ -121,8 +121,8 @@ function Schedule() {
 
     setEvents(
       events.map((evt) =>
-        evt.start === currentEvent.originalStart ? updatedEvent : evt
-      )
+        evt.start === currentEvent.originalStart ? updatedEvent : evt,
+      ),
     );
     setIsEventModalOpen(false);
     setCurrentEvent({
@@ -144,7 +144,7 @@ function Schedule() {
   const handleDateSelect = (selectInfo) => {
     const startTime = new Date(selectInfo.start);
     startTime.setMinutes(
-      startTime.getMinutes() - startTime.getTimezoneOffset()
+      startTime.getMinutes() - startTime.getTimezoneOffset(),
     );
     const endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
     setCurrentEvent({

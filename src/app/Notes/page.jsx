@@ -1,4 +1,3 @@
-"use server"
 import React from "react";
 import { data } from "@/assets/assets";
 import Image from "next/image";

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 function Signup() {
-  const [value, setValue] = useState({username: "", email: "", password: "" });
+  const [value, setValue] = useState({ username: "", email: "", password: "" });
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -22,7 +22,7 @@ function Signup() {
         router.push("/signin");
       }
     } catch (error) {
-      alert("please enter the correct email or password")
+      alert("please enter the correct email or password");
     }
   };
 
@@ -37,8 +37,11 @@ function Signup() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-800">
       <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
-      <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 shadow-md rounded-md">
-      <input
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 bg-white p-6 shadow-md rounded-md"
+      >
+        <input
           type="text"
           name="username"
           placeholder="User Name"
@@ -65,15 +68,18 @@ function Signup() {
           className="p-2 border w-full outline-none"
           required
         />
-        <button type="submit" className="bg-orange-500 text-white px-4 py-2 w-full">
+        <button
+          type="submit"
+          className="bg-orange-500 text-white px-4 py-2 w-full"
+        >
           Sign Up
         </button>
-      <p className="mt-4 text-center text-gray-800">
-        Don't have an account?
-        <Link href="/signin" className="text-orange-500">
-          Sign in
-        </Link>
-      </p>
+        <p className="mt-4 text-center text-gray-800">
+          Don't have an account?
+          <Link href="/signin" className="text-orange-500">
+            Sign in
+          </Link>
+        </p>
       </form>
     </div>
   );

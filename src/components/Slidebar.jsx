@@ -5,7 +5,7 @@ import { assets, sliderManu } from "@/assets/assets";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 function Slidebar() {
-  const pathname = usePathname(); // Get the current route
+  const pathname = usePathname();
 
   return (
     <aside className="border-r border-[#E4E4E4]">

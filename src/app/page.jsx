@@ -10,7 +10,6 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 
 export default function HomePage() {
-
   return (
     <div className="w-full h-[955] bg-white">
       {/* Heading  */}
@@ -50,7 +49,7 @@ export default function HomePage() {
 
             <Resources />
 
-           <div className="custom-calendar max-w-full bg-white rounded-lg">
+            <div className="custom-calendar max-w-full bg-white rounded-lg">
               <FullCalendar
                 plugins={[dayGridPlugin]}
                 initialView="dayGridMonth"
@@ -69,5 +68,4 @@ export default function HomePage() {
       </div>
     </div>
   );
-
 }

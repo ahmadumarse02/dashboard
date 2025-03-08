@@ -13,7 +13,7 @@ export default function Profile() {
         const response = await axios.get("/api/profile");
         setUser(response.data.user);
       } catch (error) {
-        router.push("/signin");
+        router.push("/loginin");
       }
     };
 

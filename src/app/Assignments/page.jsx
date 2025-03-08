@@ -52,8 +52,8 @@ function page() {
                         assignment.status === "Done"
                           ? "bg-green-500"
                           : assignment.status === "Progress"
-                          ? "bg-blue-500"
-                          : "bg-red-500"
+                            ? "bg-blue-500"
+                            : "bg-red-500"
                       }`}
                     ></span>
 
@@ -62,8 +62,8 @@ function page() {
                         assignment.status === "Done"
                           ? "text-green-500"
                           : assignment.status === "Progress"
-                          ? "text-blue-500"
-                          : "text-red-500"
+                            ? "text-blue-500"
+                            : "text-red-500"
                       }
                     >
                       {assignment.status}

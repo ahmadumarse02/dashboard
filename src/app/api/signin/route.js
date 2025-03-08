@@ -14,13 +14,13 @@ export async function POST(req) {
 
     const [row] = await connection.execute(
       "SELECT * FROM users WHERE email = ?",
-      [email]
+      [email],
     );
 
     if (row.length === 0) {
       return NextResponse.json(
         { message: "Invalid email or password" },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
@@ -31,7 +31,7 @@ export async function POST(req) {
     if (!isValidPassword) {
       return NextResponse.json(
         { message: "Invalid email or password" },
-        { status: 401 }
+        { status: 401 },
       );
     }
 
@@ -42,7 +42,7 @@ export async function POST(req) {
     // Create response and set cookie
     const response = NextResponse.json(
       { message: "Login successful" },
-      { status: 200 }
+      { status: 200 },
     );
 
     response.cookies.set("token", token, {

@@ -10,7 +10,7 @@ export async function POST(req) {
     const hashedpassword = await bcrypt.hash(password, 10);
     const [result] = await connection.execute(
       "INSERT INTO users (username , email , password) VALUES (? , ? , ?)",
-      [username, email, hashedpassword]
+      [username, email, hashedpassword],
     );
     return NextResponse.json({ message: "Login successful" }, { status: 200 });
   } catch (error) {

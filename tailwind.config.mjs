@@ -12,9 +12,9 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        "inter": "inter",
-        "SpaceGrotesk":"SpaceGrotesk"
-      }
+        inter: "inter",
+        SpaceGrotesk: "SpaceGrotesk",
+      },
     },
   },
   plugins: [],
