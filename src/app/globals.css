@@ -1,15 +1,1 @@
 @import "tailwindcss";
-
-@font-face {
-  font-family: "inter";
-  src: url(../assets/fonts//Inter-VariableFont_opsz\,wght.ttf);
-  font-family: SpaceGrotesk;
-  src: url(../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf);
-}
-
-* {
-  font-family: inter;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
