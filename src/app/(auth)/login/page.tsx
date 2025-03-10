@@ -1,43 +1,36 @@
 "use client";
-
-import React, { ChangeEvent, useState } from "react";
 import { Lock, Mail } from "lucide-react";
+import React, { useState, FormEvent, ChangeEvent } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FormError, LoginSchema, loginSchema } from "@/types/login";
+import useAuthStore from "@/store/authStore";
 
-export default function Login() {
+function Login() {
+  const { login } = useAuthStore();
+  const [value, setValue] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  const [value, setValue] = useState<LoginSchema>({email: "", password: "" });
-  const [error, setError] = useState<FormError>({})
-
-  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setValue((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-    setError((prev)=>({...prev, [name]:undefined}))
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    await login(value, router);
+    setLoading(false);
+    setValue({ email: "", password: "" });
   };
 
-  const handleSubmit = (e:React.FormEvent<HTMLFormElement>)=> {
-    e.preventDefault();
-    const result = loginSchema.safeParse(value)
-    if(!result.success) {
-      setError(result.error.formErrors.fieldErrors)
-    } else {
-      setError({})
-      console.log(value)
-    }
-  }
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value: inputValue } = e.target;
+    setValue((prev) => ({ ...prev, [name]: inputValue }));
+  };
 
   return (
-    <>
-          <div className="flex justify-center items-center bg-gray-100 min-h-screen">
+    <div className="flex justify-center items-center bg-gray-100 min-h-screen">
       <form
         onSubmit={handleSubmit}
         className="bg-white text-gray-700 shadow-lg px-8 py-6 border border-gray-300 flex flex-col gap-4 w-full max-w-md rounded-md"
       >
-        <h1 className="text-2xl font-semibold text-center">Login</h1>
+        <h1 className="text-2xl font-semibold text-center">Sign Up</h1>
 
         {/* Email Field */}
         <div className="relative">
@@ -49,8 +42,8 @@ export default function Login() {
             placeholder="Enter your email"
             className="outline-none border border-gray-300 px-3 py-2 pl-10 rounded-md w-full focus:border-blue-500"
             onChange={handleChange}
+            required
           />
-          {error.email && (<span className="text-red-400 text-sm">{error.email[0]}</span>)}
         </div>
 
         {/* Password Field */}
@@ -63,27 +56,29 @@ export default function Login() {
             placeholder="Enter your password"
             className="outline-none border border-gray-300 px-3 py-2 pl-10 rounded-md w-full focus:border-blue-500"
             onChange={handleChange}
+            required
           />
-          {error.password && (<span className="text-red-400 text-sm">{error.password[0]}</span>)}
         </div>
 
-        {/* Signup Button */}
+        {/* Login Button */}
         <button
           type="submit"
           className="bg-orange-500 text-white hover:bg-orange-400 px-3 py-2 rounded-md font-semibold"
+          disabled={loading}
         >
-          Login
+          {loading ? "Signing Up..." : "Sign Up"}
         </button>
 
         {/* Additional Styling Section */}
         <p className="mt-4 text-center text-gray-600">
           Already have an account?{" "}
           <Link href="/signup" className="text-orange-500 hover:underline">
-            Sign Up
+            Sign In
           </Link>
         </p>
       </form>
     </div>
-    </>
   );
 }
+
+export default Login;
