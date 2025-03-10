@@ -3,7 +3,6 @@ import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
 import { ResultSetHeader } from "mysql2/promise";
 
-// POST handler for user signup
 export async function POST(req: Request) {
   let connection;
   try {

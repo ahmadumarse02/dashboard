@@ -13,7 +13,7 @@ export default function Layout({ children }:LayerProps) {
           <header className="fixed top-0 left-56 right-0 bg-white shadow-md z-50">
             <Navbar />
           </header>
-          <main className={"mt-16 max-h-screen overflow-auto"}>{children}</main>
+          <main className={"mt-16"}>{children}</main>
         </div>
       </body>
     </html>

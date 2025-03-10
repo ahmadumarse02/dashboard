@@ -6,7 +6,7 @@ export async function connectDB(): Promise<mysql.Connection> {
     const connection = await mysql.createConnection({
       host: "localhost",
       user: "root",
-      password: "123qweasd111",
+      password: "123qweasd",
       database: "dashboard",
       connectTimeout: 20000,
     });
