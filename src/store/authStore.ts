@@ -1,28 +1,28 @@
 import { create } from "zustand";
 import axios from "axios";
 import { devtools, persist } from "zustand/middleware";
-import { Router } from "next/router"; // Assuming you're using Next.js router
+import { useRouter } from "next/navigation"; // Correct import
 
-// Define the shape of the user object (adjust according to your API response)
 interface User {
   id: string;
   name: string;
   email: string;
-  // Add other user properties as needed
 }
 
-// Define the shape of the auth store state and actions
 interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
   setUser: (userData: User | null) => void;
   signup: (
     value: { username: string; email: string; password: string },
-    router: Router
+    router: ReturnType<typeof useRouter>
   ) => Promise<void>;
   fetchUser: () => Promise<void>;
-  login: (credentials: { email: string; password: string }, router: Router) => Promise<void>;
-  logout: (router: Router) => Promise<void>;
+  login: (
+    credentials: { email: string; password: string },
+    router: ReturnType<typeof useRouter>
+  ) => Promise<void>;
+  logout: (router: ReturnType<typeof useRouter>) => Promise<void>;
 }
 
 const useAuthStore = create<AuthState>()(
@@ -72,7 +72,7 @@ const useAuthStore = create<AuthState>()(
         },
       }),
       {
-        name: "habit-storage",
+        name: "auth-storage",
       }
     )
   )
