@@ -19,7 +19,7 @@ function page() {
               <Image src={assets.searchIcon} alt="" className="" />
             </div>
             <p>
-              Filter by <span className="text-orange-500 cursor-pointer">dates</span> | &apos;
+              Filter by <span className="text-orange-500 cursor-pointer">dates</span>
               <span className="text-orange-500 cursor-pointer">Course</span>
             </p>
           </div>
