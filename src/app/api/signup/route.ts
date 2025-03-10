@@ -31,15 +31,9 @@ export async function POST(req: Request) {
 
     // Check if the insertion was successful
     if (result.affectedRows === 1) {
-      return NextResponse.json(
-        { message: "Signup successful" },
-        { status: 200 }
-      );
+      return NextResponse.json({ message: "Signup successful" }, { status: 200 });
     } else {
-      return NextResponse.json(
-        { message: "Failed to create user" },
-        { status: 500 }
-      );
+      return NextResponse.json({ message: "Failed to create user" }, { status: 500 });
     }
   } catch (error) {
     console.error("Error in signup:", error);

@@ -5,9 +5,7 @@ import { assets } from "@/assets/assets";
 function Resources() {
   return (
     <div className="border border-[#E4E4E4] w-[449px] h-[188px] rounded-lg p-5">
-      <h1 className="text-[15px] font-medium text-[#1C1D1D] mb-3">
-        Your Resources
-      </h1>
+      <h1 className="text-[15px] font-medium text-[#1C1D1D] mb-3">Your Resources</h1>
 
       {/* Resource 1 */}
       <div className="flex items-center mb-3">
@@ -32,9 +30,7 @@ function Resources() {
           <div className="flex mb-[5px]">
             <p className="w-[183px] text-[7px] text-black">Auto-layout.pdf</p>
             <p className="text-[7px] w-[160px] text-black">8.5MB</p>
-            <p className="text-[7px] text-orange-500 cursor-pointer">
-              Download
-            </p>
+            <p className="text-[7px] text-orange-500 cursor-pointer">Download</p>
           </div>
           <p className="text-[7px] text-[#85878D]">
             Let's quickly create some realistic and shiny metal @figma✨
@@ -49,9 +45,7 @@ function Resources() {
           <div className="flex mb-[5px]">
             <p className="w-[183px] text-[7px] text-black">Auto-layout.pdf</p>
             <p className="text-[7px] w-[153px] text-black">8.5MB</p>
-            <p className="text-[7px] text-orange-500 cursor-pointer">
-              Download
-            </p>
+            <p className="text-[7px] text-orange-500 cursor-pointer">Download</p>
           </div>
           <p className="text-[7px] text-[#85878D]">
             Let's quickly create some realistic and shiny metal @figma✨

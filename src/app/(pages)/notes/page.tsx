@@ -26,9 +26,7 @@ function Page() {
               ))}
             </div>
             <h3 className="text-sm font-bold mb-[10px]">{card.title}</h3>
-            {card.paragraph && (
-              <p className="text-sm text-gray-600">{card.paragraph}</p>
-            )}
+            {card.paragraph && <p className="text-sm text-gray-600">{card.paragraph}</p>}
             <ul className="list-disc pl-5 text-gray-600 text-sm">
               {card.points.map((point, i) => (
                 <li key={i}>{point}</li>
@@ -64,7 +62,7 @@ function Page() {
   );
 }
 
-const getLabelColor = (label:string) => {
+const getLabelColor = (label: string) => {
   switch (label) {
     case "Weekly":
       return "#E0F7FA";
@@ -83,7 +81,7 @@ const getLabelColor = (label:string) => {
   }
 };
 
-const getTextColor = (label:string) => {
+const getTextColor = (label: string) => {
   switch (label) {
     case "Weekly":
       return "#00796B";

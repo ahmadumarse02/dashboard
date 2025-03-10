@@ -32,8 +32,7 @@ export default function PerformanceCard() {
         <Image src={image} alt="" className="h-[109px] w-[150px] mx-auto" />
 
         <p className="text-gray-500 text-sm text-center">
-          Your Grade:{" "}
-          <span className="text-black font-bold text-lg">{grade}</span>
+          Your Grade: <span className="text-black font-bold text-lg">{grade}</span>
         </p>
       </div>
     </div>

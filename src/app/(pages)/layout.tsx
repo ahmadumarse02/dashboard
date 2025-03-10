@@ -2,7 +2,7 @@ import Slidebar from "@/components/Slidebar";
 import Navbar from "@/components/Navbar";
 import { LayerProps } from "recharts";
 
-export default function Layout({ children }:LayerProps) {
+export default function Layout({ children }: LayerProps) {
   return (
     <html lang="en">
       <body>

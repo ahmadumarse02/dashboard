@@ -16,7 +16,10 @@ interface AuthState {
   user: User | null;
   isAuthenticated: boolean;
   setUser: (userData: User | null) => void;
-  signup: (value:  { username: string; email: string; password: string }, router: Router) => Promise<void>;
+  signup: (
+    value: { username: string; email: string; password: string },
+    router: Router
+  ) => Promise<void>;
   fetchUser: () => Promise<void>;
   login: (credentials: { email: string; password: string }, router: Router) => Promise<void>;
   logout: (router: Router) => Promise<void>;
@@ -35,15 +38,15 @@ const useAuthStore = create<AuthState>()(
             if (res.status === 200) {
               router.push("/login");
             }
-          } catch (error) {
-            alert(error.response?.data?.message || "Error in signup");
+          } catch {
+            alert("Error in signup");
           }
         },
         fetchUser: async () => {
           try {
             const res = await axios.get("/api/profile");
             set({ user: res.data.user });
-          } catch (error) {
+          } catch {
             set({ user: null });
           }
         },
@@ -54,8 +57,8 @@ const useAuthStore = create<AuthState>()(
               set({ user: res.data.user, isAuthenticated: true });
               router.push("/");
             }
-          } catch (error) {
-            alert(error.response?.data?.message || "Error in login");
+          } catch {
+            alert("Error in login");
           }
         },
         logout: async (router) => {
@@ -63,7 +66,7 @@ const useAuthStore = create<AuthState>()(
             await axios.post("/api/logout");
             set({ user: null, isAuthenticated: false });
             router.push("/login");
-          } catch (error) {
+          } catch {
             alert("Error logging out");
           }
         },

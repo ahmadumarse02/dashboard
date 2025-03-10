@@ -22,25 +22,16 @@ export async function POST(req: Request) {
     const { email, password }: { email: string; password: string } = await req.json();
 
     if (!email || !password) {
-      return NextResponse.json(
-        { message: "Email and password are required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ message: "Email and password are required" }, { status: 400 });
     }
 
     connection = await connectDB();
 
     // Fetch user from the database
-    const [rows] = await connection.execute<User[]>(
-      "SELECT * FROM users WHERE email = ?",
-      [email]
-    );
+    const [rows] = await connection.execute<User[]>("SELECT * FROM users WHERE email = ?", [email]);
 
     if (rows.length === 0) {
-      return NextResponse.json(
-        { message: "Invalid email or password" },
-        { status: 401 }
-      );
+      return NextResponse.json({ message: "Invalid email or password" }, { status: 401 });
     }
 
     const user = rows[0];
@@ -48,10 +39,7 @@ export async function POST(req: Request) {
     // Validate password
     const isValidPassword = await bcrypt.compare(password, user.password);
     if (!isValidPassword) {
-      return NextResponse.json(
-        { message: "Invalid email or password" },
-        { status: 401 }
-      );
+      return NextResponse.json({ message: "Invalid email or password" }, { status: 401 });
     }
 
     // Generate JWT token

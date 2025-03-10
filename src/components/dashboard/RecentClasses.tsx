@@ -16,48 +16,28 @@ const RecentClasses = () => {
 
         <div className="space-y-4">
           <div className="p-4 border-2 border-[#FF4B00] rounded-lg flex items-center mb-2">
-            <Image
-              src={assets.Figma}
-              alt="Figma Icon"
-              width={55}
-              height={55}
-              className="mr-2"
-            />
+            <Image src={assets.Figma} alt="Figma Icon" width={55} height={55} className="mr-2" />
             <div className="">
-              <span className="text-[#FF4B00] font-semibold">
-                User Experience (UX) Design
-              </span>
+              <span className="text-[#FF4B00] font-semibold">User Experience (UX) Design</span>
               <div className="text-gray-500 text-sm">
                 <p className="flex items-center text-sm">
                   <Image src={assets.Clock} alt="" className="h-4 w-4" />
-                  5:30hrs{" "}
-                  <Image src={assets.note} alt="" className="ml-7 h-4 w-4" /> 05
-                  Lessons{" "}
-                  <Image src={assets.Clock} alt="" className="ml-7 h-4 w-4" />{" "}
-                  Assignments
+                  5:30hrs <Image src={assets.note} alt="" className="ml-7 h-4 w-4" /> 05 Lessons{" "}
+                  <Image src={assets.Clock} alt="" className="ml-7 h-4 w-4" /> Assignments
                 </p>
               </div>
             </div>
           </div>
 
           <div className="p-4 border flex items-center mb-2 rounded-lg bg-gray-100">
-            <Image
-              src={assets.Design}
-              alt="Design Icon"
-              width={55}
-              height={55}
-              className="mr-2"
-            />
+            <Image src={assets.Design} alt="Design Icon" width={55} height={55} className="mr-2" />
             <div className="">
               <span className="font-semibold">Visual Design and Branding</span>
               <div className="text-gray-500 text-sm">
                 <p className="flex items-center text-sm">
                   <Image src={assets.Clock} alt="" className="h-4 w-4" />
-                  4:00hrs{" "}
-                  <Image src={assets.note} alt="" className="ml-7 h-4 w-4" /> 03
-                  Lessons{" "}
-                  <Image src={assets.Clock} alt="" className="ml-7 h-4 w-4" />{" "}
-                  Assignments
+                  4:00hrs <Image src={assets.note} alt="" className="ml-7 h-4 w-4" /> 03 Lessons{" "}
+                  <Image src={assets.Clock} alt="" className="ml-7 h-4 w-4" /> Assignments
                 </p>
               </div>
             </div>
@@ -80,9 +60,7 @@ const RecentClasses = () => {
                 className="mr-4"
               />
               <div>
-                <p className="font-semibold text-[16px]">
-                  UX Design Fundamentals
-                </p>
+                <p className="font-semibold text-[16px]">UX Design Fundamentals</p>
                 <p className="text-gray-500 text-[16px]">5:30pm</p>
               </div>
             </div>

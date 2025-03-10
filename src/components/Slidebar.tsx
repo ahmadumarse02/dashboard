@@ -25,18 +25,10 @@ function Slidebar() {
               <Link
                 href={item.path}
                 className={`flex items-center h-8 px-4 py-3 my-1 mx-auto rounded-lg transition-all no-underline ${
-                  pathname === item.path
-                    ? "bg-orange-500 text-white"
-                    : "text-gray-700"
+                  pathname === item.path ? "bg-orange-500 text-white" : "text-gray-700"
                 }`}
               >
-                <Image
-                  src={item.icon}
-                  alt={item.name}
-                  width={20}
-                  height={20}
-                  className="mr-3"
-                />
+                <Image src={item.icon} alt={item.name} width={20} height={20} className="mr-3" />
                 {item.name}
               </Link>
             </li>

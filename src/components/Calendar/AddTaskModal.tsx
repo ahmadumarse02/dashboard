@@ -35,16 +35,10 @@ export default function AddTaskModal({ task, setTask, onSave, onCancel }) {
           />
         </div>
         <div className="flex gap-4 p-6">
-          <button
-            onClick={onSave}
-            className="bg-orange-500 text-white px-4 py-2 rounded"
-          >
+          <button onClick={onSave} className="bg-orange-500 text-white px-4 py-2 rounded">
             Save Task
           </button>
-          <button
-            onClick={onCancel}
-            className="bg-gray-500 text-white px-4 py-2 rounded"
-          >
+          <button onClick={onCancel} className="bg-gray-500 text-white px-4 py-2 rounded">
             Cancel
           </button>
         </div>

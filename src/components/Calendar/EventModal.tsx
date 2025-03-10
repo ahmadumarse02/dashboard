@@ -16,9 +16,7 @@ export default function EventModal({
           placeholder="Event Title"
           className="border p-2 w-full mb-2 rounded"
           value={selectedEvent.title}
-          onChange={(e) =>
-            setSelectedEvent({ ...selectedEvent, title: e.target.value })
-          }
+          onChange={(e) => setSelectedEvent({ ...selectedEvent, title: e.target.value })}
         />
         <input
           type="text"
@@ -33,22 +31,13 @@ export default function EventModal({
           }
         />
         <div className="flex gap-4 justify-center">
-          <button
-            onClick={onSaveChanges}
-            className="bg-orange-500 text-white px-4 py-2 rounded"
-          >
+          <button onClick={onSaveChanges} className="bg-orange-500 text-white px-4 py-2 rounded">
             Save Changes
           </button>
-          <button
-            onClick={onDelete}
-            className="bg-red-500 text-white px-4 py-2 rounded"
-          >
+          <button onClick={onDelete} className="bg-red-500 text-white px-4 py-2 rounded">
             Delete
           </button>
-          <button
-            onClick={onClose}
-            className="bg-gray-500 text-white px-4 py-2 rounded"
-          >
+          <button onClick={onClose} className="bg-gray-500 text-white px-4 py-2 rounded">
             Close
           </button>
         </div>

@@ -9,7 +9,7 @@ import CalendarHeader from "@/components/Calendar/CalendarHeader";
 import AddTaskModal from "@/components/Calendar/AddTaskModal";
 import EventModal from "@/components/Calendar/EventModal";
 import useStore from "@/store/eventStore";
-import { EventInput, DateSelectArg, EventClickArg } from "@fullcalendar/core";
+import { DateSelectArg, EventClickArg } from "@fullcalendar/core";
 
 // Define the shape of an event
 interface Event {
@@ -99,7 +99,7 @@ function Schedule() {
   // Save a new task
   const handleSaveTask = () => {
     if (currentEvent.title && currentEvent.start && currentEvent.end) {
-      const newEvent= {
+      const newEvent = {
         title: currentEvent.title, // `title` is guaranteed to be a string
         description: currentEvent.description || "",
         start: new Date(currentEvent.start).toISOString(),

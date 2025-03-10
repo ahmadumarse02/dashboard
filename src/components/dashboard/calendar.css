@@ -1,111 +1,109 @@
-
 /* Remove spacing inside the day frame */
 .fc-daygrid-day-frame {
-    padding: 0 !important;
-    margin: 0 !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Adjust the height of the calendar to prevent unnecessary scrolling */
 .fc .fc-daygrid-body {
-    height: 100% !important;
-    overflow: hidden !important;
+  height: 100% !important;
+  overflow: hidden !important;
 }
 
 /* Ensure the calendar container does not show scrollbars */
 .fc-scroller {
-    overflow: hidden !important;
+  overflow: hidden !important;
 }
 
 /* Improve header styles */
 .fc .fc-toolbar-title {
-    font-size: 10px;
-    font-weight: bold;
-    color: #ff4500;
+  font-size: 10px;
+  font-weight: bold;
+  color: #ff4500;
 }
 
 /* Customize active date circle */
 .fc-day-today {
-    background: #ff4500 !important;
-    color: white !important;
-    border-radius: 50% !important;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
+  background: #ff4500 !important;
+  color: white !important;
+  border-radius: 50% !important;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 /* Remove unwanted borders */
 .fc-daygrid-day-number {
-    padding: 0 !important;
-    margin: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .calendar-container {
-    max-width: 350px;
-    margin: auto;
-    padding: 10px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden !important;
+  max-width: 350px;
+  margin: auto;
+  padding: 10px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden !important;
 }
 
 .fc-col-header-cell {
-    border: none !important;
-    background: none !important;
-    color: #ff4500;
-    font-family: 10px;
+  border: none !important;
+  background: none !important;
+  color: #ff4500;
+  font-family: 10px;
 }
 
 .fc-scrollgrid {
-    border: none !important;
+  border: none !important;
 }
 
-
 .fc-theme-standard td {
-    border: none !important;
+  border: none !important;
 }
 
 .fc .fc-button-primary {
-    background: none !important;
-    border: none;
-    color: #ff4500;
-    font-size: 10px;
+  background: none !important;
+  border: none;
+  color: #ff4500;
+  font-size: 10px;
 }
 .fc-prev-button,
 .fc-next-button {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
-  color:#ff4500;
+  color: #ff4500;
   padding: 0 !important;
   margin: 0 !important;
 }
 
-
 .fc-prev-button,
 .fc-next-button:hover {
-    background: none !important;
-    color: #ff4500;
+  background: none !important;
+  color: #ff4500;
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
-.fc-theme-standard td, .fc-theme-standard th{
-    border: none;
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border: none;
 }
 
 .fc table {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .fc .fc-daygrid-body-natural .fc-daygrid-day-events {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }

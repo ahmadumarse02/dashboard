@@ -39,9 +39,9 @@ import watch from "./watch.svg";
 import downloads from "./downloads.svg";
 import Form from "./Form.svg";
 import Clock from "./Clock.svg";
-import cardImage1 from './cardImage1.jpg'
-import cardImage2 from './cardImage2.jpg'
-import cardImage3 from './cardImage3.jpg'
+import cardImage1 from "./cardImage1.jpg";
+import cardImage2 from "./cardImage2.jpg";
+import cardImage3 from "./cardImage3.jpg";
 
 export const assets = {
   logo,
@@ -87,7 +87,7 @@ export const assets = {
   Clock,
   cardImage1,
   cardImage2,
-  cardImage3
+  cardImage3,
 };
 
 export const sliderManu = [
@@ -154,10 +154,7 @@ export const data = [
     buttonText: ["Weekly", "Product"],
     title: "Product Team Meeting",
     paragraph: "This monthly progress agenda is following this items:",
-    points: [
-      "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each",
-    ],
+    points: ["Introduction to Newest Product Plan", "Monthly Revenue updates for each"],
     avatar: assets.avatar1,
     name: "Floyd Miles",
     date: "Mar 5 04:25",
@@ -167,10 +164,7 @@ export const data = [
     buttonText: ["Monthly", "Business"],
     title: "Product Team Meeting",
     paragraph: "This monthly progress agenda is following this items:",
-    points: [
-      "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each",
-    ],
+    points: ["Introduction to Newest Product Plan", "Monthly Revenue updates for each"],
     avatar: assets.avatar2,
     name: "Dianne Russell",
     date: "Apr 11 18:30",
@@ -180,10 +174,7 @@ export const data = [
     buttonText: ["Personal", "Business"],
     title: "HR Interview",
     paragraph: "This monthly progress agenda is following this items:",
-    points: [
-      "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each",
-    ],
+    points: ["Introduction to Newest Product Plan", "Monthly Revenue updates for each"],
     avatar: assets.avatar3,
     name: "Annette Black",
     date: "Jun 23 14:31",
@@ -192,10 +183,7 @@ export const data = [
   {
     buttonText: ["Monthly", "Product"],
     title: "Monthly Team Progress",
-    points: [
-      "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each",
-    ],
+    points: ["Introduction to Newest Product Plan", "Monthly Revenue updates for each"],
     avatar: assets.avatar4,
     name: "Robert Fox",
     date: "Jan 31 09:53",
@@ -205,9 +193,7 @@ export const data = [
     buttonText: ["Monthly", "Business"],
     title: "Product Team Meeting",
     paragraph: "This monthly progress agenda is following this items:",
-    points: [
-      "Some Summaries of this weeks meeting with some conclusion we get :",
-    ],
+    points: ["Some Summaries of this weeks meeting with some conclusion we get :"],
     avatar: assets.avatar5,
     name: "Brooklyn Simmons",
     date: "Aug 15 10:29",
@@ -226,10 +212,7 @@ export const data = [
   {
     buttonText: ["Monthly", "Product"],
     title: "Monthly Team Progress",
-    points: [
-      "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each",
-    ],
+    points: ["Introduction to Newest Product Plan", "Monthly Revenue updates for each"],
     avatar: assets.avatar4,
     name: "Robert Fox",
     date: "Jan 31 09:53",
@@ -239,9 +222,7 @@ export const data = [
     buttonText: ["Monthly", "Business"],
     title: "Product Team Meeting",
     paragraph: "This monthly progress agenda is following this items:",
-    points: [
-      "Some Summaries of this weeks meeting with some conclusion we get :",
-    ],
+    points: ["Some Summaries of this weeks meeting with some conclusion we get :"],
     avatar: assets.avatar5,
     name: "Brooklyn Simmons",
     date: "Aug 15 10:29",
@@ -261,10 +242,7 @@ export const data = [
     buttonText: ["Badge", "Product"],
     title: "Weekly Team Progress",
     paragraph: "This weekly progress agenda is following this items:",
-    points: [
-      "Introduction to Newest Product Plan",
-      "Monthly Revenue updates for each",
-    ],
+    points: ["Introduction to Newest Product Plan", "Monthly Revenue updates for each"],
     avatar: assets.avatar2,
     name: "Dianne Russell",
     date: "Apr 11 18:30",

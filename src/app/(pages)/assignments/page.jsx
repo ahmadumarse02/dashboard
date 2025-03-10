@@ -10,17 +10,14 @@ function page() {
       <header className="flex justify-between items-center pt-[21px] mb-[34px]">
         <div>
           <h1 className="text-[32px] text-[#211C37] font-bold">Assignments</h1>
-          <p className="text-xl text-[#85878D]">
-            View and manage your course assignments
-          </p>
+          <p className="text-xl text-[#85878D]">View and manage your course assignments</p>
         </div>
         <div className="flex items-center text-lg space-x-2">
           <div className="w-8 h-8 border border-[#E4E4E4] flex items-center justify-center rounded-md">
             <Image src={assets.searchIcon} alt="" className="" />
           </div>
           <p>
-            Filter by{" "}
-            <span className="text-orange-500 cursor-pointer">dates</span> |{" "}
+            Filter by <span className="text-orange-500 cursor-pointer">dates</span> |{" "}
             <span className="text-orange-500 cursor-pointer">Status</span>
           </p>
         </div>
@@ -43,9 +40,7 @@ function page() {
                 <td className="py-3">{assignment.title}</td>
                 <td className="py-3">{assignment.course}</td>
                 <td className="py-3 w-[204px]">{assignment.dueDate}</td>
-                <td
-                  className={`py-3 w-[170px] font-semibold flex justify-center space-x-1 `}
-                >
+                <td className={`py-3 w-[170px] font-semibold flex justify-center space-x-1 `}>
                   <div className="bg-[#EDF5FE] px-2 py-1 rounded-xl flex items-center gap-1">
                     <span
                       className={`w-2 h-2 rounded-full inline-block ${

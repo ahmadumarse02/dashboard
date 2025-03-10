@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
 const data = [
   { month: "Jan", study: 35, test: 52 },
@@ -41,10 +34,7 @@ export default function HoursSpent() {
         <ResponsiveContainer width="100%" height={150}>
           <BarChart data={data}>
             <XAxis dataKey="month" tick={{ fill: "#888", fontSize: 12 }} />
-            <YAxis
-              tickFormatter={(value) => `${value} Hr`}
-              tick={{ fill: "#888", fontSize: 12 }}
-            />
+            <YAxis tickFormatter={(value) => `${value} Hr`} tick={{ fill: "#888", fontSize: 12 }} />
             <Tooltip
               contentStyle={{
                 backgroundColor: "#1F1C3B",
@@ -58,13 +48,7 @@ export default function HoursSpent() {
             />
             {/* Stacked Bars */}
             <Bar dataKey="test" stackId="a" fill="#F8EFE2" barSize={30} />
-            <Bar
-              dataKey="study"
-              stackId="a"
-              fill="#FF4B00"
-              radius={[5, 5, 0, 0]}
-              barSize={20}
-            />
+            <Bar dataKey="study" stackId="a" fill="#FF4B00" radius={[5, 5, 0, 0]} barSize={20} />
           </BarChart>
         </ResponsiveContainer>
       </div>

@@ -11,20 +11,15 @@ function page() {
         {/* Header */}
         <header className="flex justify-between items-center pt-[21px] mb-[34px]">
           <div>
-            <h1 className="text-[32px] text-[#211C37] font-bold">
-              Class Recordings
-            </h1>
-            <p className="text-xl text-[#85878D]">
-              Access and review past class sessions
-            </p>
+            <h1 className="text-[32px] text-[#211C37] font-bold">Class Recordings</h1>
+            <p className="text-xl text-[#85878D]">Access and review past class sessions</p>
           </div>
           <div className="flex items-center text-lg space-x-2">
             <div className="w-8 h-8 border border-[#E4E4E4] flex items-center justify-center rounded-md">
               <Image src={assets.searchIcon} alt="" className="" />
             </div>
             <p>
-              Filter by{" "}
-              <span className="text-orange-500 cursor-pointer">dates</span> |{" "}
+              Filter by <span className="text-orange-500 cursor-pointer">dates</span> |{" "}
               <span className="text-orange-500 cursor-pointer">Course</span>
             </p>
           </div>
@@ -33,15 +28,8 @@ function page() {
         {/* cards */}
         <div className="p-4 grid grid-cols-3 gap-4">
           {cardData.map((data, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl shadow-md p-4 min-w-[302px] h-[180px]"
-            >
-              <Image
-                src={data.image}
-                alt=""
-                className="rounded-xl w-full h-[88px] object-center"
-              />
+            <div key={index} className="bg-white rounded-2xl shadow-md p-4 min-w-[302px] h-[180px]">
+              <Image src={data.image} alt="" className="rounded-xl w-full h-[88px] object-center" />
               <h3 className="text-sm font-bold mt-1">{data.title}</h3>
               <div className="flex gap-5">
                 <p className="text-[10px] items-center text-gray-600 flex">
