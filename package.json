@@ -1,5 +1,5 @@
 {
-  "name": "nextjs",
+  "name": "abcd",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -15,31 +15,22 @@
     "@fullcalendar/list": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
-    "@tailwindcss/postcss": "^4.0.12",
-    "axios": "^1.8.2",
-    "bcryptjs": "^3.0.2",
+    "axios": "^1.8.1",
+    "bcrypt": "^5.1.1",
     "jsonwebtoken": "^9.0.2",
-    "lucide-react": "^0.479.0",
-    "mysql2": "^3.13.0",
-    "next": "15.2.1",
-    "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
+    "lucide-react": "^0.475.0",
+    "mysql2": "^3.12.0",
+    "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0",
-    "recharts": "^2.15.1",
-    "tailwindcss": "^4.0.12",
-    "zod": "^3.24.2",
-    "zustand": "^5.0.3"
+    "react-icons": "^5.4.0",
+    "recharts": "^2.15.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@types/jsonwebtoken": "^9.0.9",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.1",
-    "typescript": "^5"
+    "eslint-config-next": "15.1.7",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
   }
 }
